@@ -1,0 +1,53 @@
+// var a = function(x) {
+//     let b = ''
+//     for(const angka of x.toString()) {
+//         b = angka + b
+//         console.log(b)
+//     }
+//     return console.log(b === x.toString())
+// }
+const socialLinked = document.querySelectorAll("#social");
+socialLinked.forEach((media) => {
+    media.addEventListener("click", ({ target }) => {
+        console.log(target.alt);
+        switch (target.alt) {
+            case "Twitter":
+                window.location.href = "https://twitter.com/";
+                break;
+            case "Pinterest":
+                window.location.href = "https://pinterest.com/";
+                break;
+            case "Facebook":
+                window.location.href = "https://facebook.com/antonio.hsh.96";
+                break;
+            case "Instagram":
+                window.location.href = "https://instagram.com/eng.kangyann";
+                break;
+            default:
+                window.location.href = "/";
+                break;
+        }
+    });
+});
+
+const icon = document.querySelectorAll("#menu_icon");
+const menu_list = document.querySelectorAll(".menu_list");
+
+function set(button) {
+    icon.forEach((icons) => {
+        icons.classList.remove("active");
+    });
+    button.classList.add("active");
+}
+
+icon.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        menu_list.forEach((page) => {
+            page.style.display = "none";
+        });
+        const pageId = this.getAttribute("data-page");
+        const selectedPage = document.getElementById(pageId);
+        selectedPage.style.display = "block";
+        selectedPage.style.opacity = "1";
+    });
+});
